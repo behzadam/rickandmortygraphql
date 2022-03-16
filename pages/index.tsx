@@ -6,12 +6,14 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Rick and Morty | React Query Nextjs Graphql</title>
-        <meta name="description" content="Rick and Morty | React Query Nextjs Graphql" />
+        <meta
+          name="description"
+          content="Rick and Morty | React Query Nextjs Graphql"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-      </main>
+      <main></main>
     </div>
   )
 }
