@@ -1,0 +1,34 @@
+{
+  // My convention is to indent with 2 spaces
+  "editor.tabSize": 2,
+  // Then I have to turn off it:
+  "editor.detectIndentation": false,
+
+  "search.exclude": {
+    // Don't search in yarn.lock
+    "yarn.lock": true
+  },
+
+  "editor.formatOnSave": true,
+  // Add this extension to `extensions: recommendations['dbaeumer.vscode-eslint']`
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+
+  // For json and jsonc files
+  "[json][jsonc]": {
+    // Add this extension to `extensions: recommendations['esbenp.prettier-vscode']`
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[typescript]": {
+    // This extension is bundled with Visual Studio Code.
+    // Overwrite defaultFormatter for Typescript:
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
