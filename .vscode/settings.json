@@ -10,8 +10,7 @@
   },
 
   "editor.formatOnSave": true,
-  // Add this extension to `extensions: recommendations['dbaeumer.vscode-eslint']`
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": [
     "source.addMissingImports",
     "source.fixAll.eslint"
