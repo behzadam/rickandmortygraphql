@@ -1,7 +1,9 @@
-import { CharactersQuery } from "@/src/graphql/types"
-import { fetcher } from "@/src/utils/axiosHelper"
-import { CharactersQueryDocument } from "./Character.queries"
+import { CharactersQuery } from '../../generated/types'
+import { fetcher } from '../../utils/api-utils'
+import { CharactersQueryDocument } from './Character.queries'
 
-export const fetchCharacters = async (page: number | null = null): Promise<CharactersQuery> => {
+export const fetchCharacters = async (
+  page: string
+): Promise<CharactersQuery> => {
   return await fetcher<CharactersQuery>(CharactersQueryDocument, { page })
 }
