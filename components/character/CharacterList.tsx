@@ -44,8 +44,8 @@ const CharacterList = () => {
               {isFetchingNextPage
                 ? 'Loading more...'
                 : hasNextPage
-                  ? 'Load Newer'
-                  : 'Nothing more to load'}
+                ? 'Load Newer'
+                : 'Nothing more to load'}
             </button>
           </div>
         </React.Fragment>
