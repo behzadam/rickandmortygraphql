@@ -26,7 +26,7 @@ For now, we already generated types but if you want to extend this project you n
 
 We want to use our custom hooks and aslo fetcher.
 
-( graphql-codegen generates custom hook and a fetcher but here we want to use axios instead)
+( graphql-codegen generates custom hooks and a fetcher but we want to use our custom hook and axios )
 
 Then this is the `codegen.yml` file:
 
@@ -43,7 +43,7 @@ generates:
 
 ```
 
-We want to send DocumentNode to our custom fetcher:
+Our custom fetcher:
 
 ```ts
 import { print, DocumentNode } from 'graphql'
@@ -59,29 +59,3 @@ export const fetcher = <T>(
   })
 }
 ```
-
-Then we need this package:
-
-`graphql-typed-document-node`
-
-And our query should be like this:
-
-```ts
-import { gql } from 'graphql-tag'
-
-export const CharactersQueryDocument = gql`
-  query Characters($page: Int) {
-    characters(page: $page) {
-      ...
-```
-
-Then `graphql-codegen` will generate a type like this:
-
-```ts
-export const CharactersDocument = {
-  kind: 'Document',
-  definitions: [
-    ...
-```
-
-paths: ./genereated/types.ts
