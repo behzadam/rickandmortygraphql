@@ -15,6 +15,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <header className="py-8 text-center">
+          <h1 className="text-4xl font-bold text-gray-50">Rick and Morty</h1>
+          <p className="pt-2 text-md text-slate-400">React Query | Graphql</p>
+        </header>
         <CharacterList />
       </main>
     </div>
