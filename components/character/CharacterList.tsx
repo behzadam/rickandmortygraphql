@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import useCharacters from './useCharacters'
 import { Character } from '../../generated/types'
 import Show from '../show/Show'
@@ -24,10 +24,6 @@ const CharacterList = () => {
     }, [] as Character[])
   }, [data])
 
-  useEffect(() => {
-    console.log(data?.pageParams)
-  }, [data])
-
   if (isLoading) return <></>
   return (
     <Show when={characters}>
@@ -48,8 +44,8 @@ const CharacterList = () => {
               {isFetchingNextPage
                 ? 'Loading more...'
                 : hasNextPage
-                ? 'Load Newer'
-                : 'Nothing more to load'}
+                  ? 'Load Newer'
+                  : 'Nothing more to load'}
             </button>
           </div>
         </React.Fragment>
