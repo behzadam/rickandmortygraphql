@@ -1,4 +1,9 @@
-## Simple example of React Query and Graphql
+# Simple example of React Query and Graphql
+
+- React Query
+- Axios
+- Graphql Codegen
+- Rick and Morty API
 
 To run on your local machine:
 
@@ -6,9 +11,9 @@ To run on your local machine:
 
 This project uses graphql-codegen to generate Rick and Morty Graphql API types.
 
-#### The packages we need:
+## @graphql-codegen packages
 
-```
+```js
 @graphql-codegen/cli
 @graphql-codegen/introspection
 @graphql-codegen/typed-document-node @graphql-codegen/typescript
@@ -25,7 +30,7 @@ We want to use our custom hooks and aslo fetcher.
 
 Then this is the `codegen.yml` file:
 
-```
+```js
 overwrite: true
 schema: 'https://rickandmortyapi.com/graphql'
 documents: './components/**/*.queries.ts'
@@ -40,7 +45,7 @@ generates:
 
 We want to send DocumentNode to our custom fetcher:
 
-```
+```ts
 import { print, DocumentNode } from 'graphql'
 export const fetcher = <T>(
   query: DocumentNode,
@@ -61,7 +66,7 @@ Then we need this package:
 
 And our query should be like this:
 
-```
+```ts
 import { gql } from 'graphql-tag'
 
 export const CharactersQueryDocument = gql`
@@ -72,7 +77,7 @@ export const CharactersQueryDocument = gql`
 
 Then `graphql-codegen` will generate a type like this:
 
-```
+```ts
 export const CharactersDocument = {
   kind: 'Document',
   definitions: [
