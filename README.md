@@ -4,6 +4,9 @@
 - Axios
 - Graphql Codegen
 - Rick and Morty API
+- Typescript
+- Nextjs
+- Tailwindcss
 
 To run on your local machine:
 
