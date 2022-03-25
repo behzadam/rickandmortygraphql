@@ -2,7 +2,9 @@
 
 ![Rick and Morty React Query and Graphql](https://user-images.githubusercontent.com/5009172/160182631-5505d704-44d2-446f-9003-53cd18e95edc.png)
 
-[Live Demo](https://codesandbox.io/s/simple-example-of-react-query-and-graphql-43wys8)
+[Live Demo Vercel](https://csb-43wys8-lljtsnj42-behzadam.vercel.app/)
+
+[Codesandbox](https://codesandbox.io/s/simple-example-of-react-query-and-graphql-43wys8)
 
 - React Query
 - Axios
