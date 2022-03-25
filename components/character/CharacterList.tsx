@@ -2,26 +2,21 @@ import React, { useMemo, useEffect } from 'react'
 import useCharacters from './useCharacters'
 import { Character } from '../../generated/types'
 import Show from '../show/Show'
-// import useIntersectionObserver from '../list/useIntersectionObserver'
+import useIntersectionObserver from '../../utils/intersection-observer'
+import CharacterListItem from './CharacterListItem'
+
+const INITIAL_PAGE = 1
 
 const CharacterList = () => {
-  const initialPage = 1
-
-  const {
-    data,
-    isLoading,
-    isFetchingNextPage,
-    hasNextPage,
-    isFetching,
-    fetchNextPage,
-  } = useCharacters(initialPage)
+  const { data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage } =
+    useCharacters(INITIAL_PAGE)
 
   const loadMoreButtonRef = React.useRef<HTMLButtonElement>(null)
-  // useIntersectionObserver({
-  //   target: loadMoreButtonRef,
-  //   onIntersect: fetchNextPage,
-  //   enabled: !!hasNextPage,
-  // })
+  useIntersectionObserver({
+    target: loadMoreButtonRef,
+    onIntersect: fetchNextPage,
+    enabled: !!hasNextPage,
+  })
 
   const characters: Character[] | undefined = useMemo(() => {
     return data?.pages?.reduce((result, currentPage) => {
@@ -38,16 +33,11 @@ const CharacterList = () => {
     <Show when={characters}>
       {
         <React.Fragment>
-          {/* <List
-            keyExtractor={(item: Character) => item.id!}
-            data={characters}
-            renderItem={(item: Character, view: string) => {
-              return view === 'grid' ? (
-                <CharacterGridItem item={item} />
-              ) : (
-                <CharacterListItem item={item} />
-              )
-            }} /> */}
+          <section className="grid max-w-6xl grid-cols-1 gap-2 mx-auto md:grid-cols-2">
+            {characters?.map((item, index) => (
+              <CharacterListItem item={item} key={index} />
+            ))}
+          </section>
           <div className="flex items-center justify-center py-4 pt-16">
             <button
               ref={loadMoreButtonRef}
@@ -61,11 +51,6 @@ const CharacterList = () => {
                 ? 'Load Newer'
                 : 'Nothing more to load'}
             </button>
-            <div>
-              {isFetching && !isFetchingNextPage
-                ? 'Background Updating...'
-                : null}
-            </div>
           </div>
         </React.Fragment>
       }

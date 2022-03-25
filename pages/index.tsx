@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import CharacterList from '../components/character/CharacterList'
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main></main>
+      <main>
+        <CharacterList />
+      </main>
     </div>
   )
 }
