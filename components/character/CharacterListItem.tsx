@@ -2,7 +2,7 @@ import imageLoader from '../../utils/image-loader'
 import Image from 'next/image'
 import React from 'react'
 import Show from '../show/Show'
-import { CharacterListItemProps } from './Character.types'
+import { Character } from '../../generated/types'
 
 const IMG_SIZE = 80
 
@@ -24,6 +24,10 @@ const MetaInfo = ({ item, ...other }: CharacterListItemProps) => {
       <div className="px-2">{item.species}</div>
     </div>
   )
+}
+
+type CharacterListItemProps = {
+  item: Character
 }
 
 const CharacterListItem = ({ item }: CharacterListItemProps) => {
